@@ -1,0 +1,5 @@
+Pillow
+Django
+django-livesync
+pydevd
+django-crispy-forms

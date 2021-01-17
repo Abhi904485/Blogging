@@ -29,51 +29,48 @@ ALLOWED_HOSTS = ["*"]
 # Application definitionP
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'crispy_forms',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'livesync',
-    'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',
-    'users.apps.UsersConfig'
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'crispy_forms',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'livereload',
+        'django.contrib.staticfiles',
+        'blog.apps.BlogConfig',
+        'users.apps.UsersConfig'
 
 ]
 
-DJANGO_LIVESYNC = {
-    'PORT': 8000  # this is optional and is default set to 9001.
-}
-
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'livesync.core.middleware.DjangoLiveSyncMiddleware',
+        'django.middleware.security.SecurityMiddleware',
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'Blogging.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'blog/templates/blog'), os.path.join(BASE_DIR, 'users/templates/Profile')]
-        ,
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
+        {
+                'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                'DIRS': [os.path.join(BASE_DIR, 'blog/templates/blog'),
+                         os.path.join(BASE_DIR, 'users/templates/Profile')]
+                ,
+                'APP_DIRS': True,
+                'OPTIONS': {
+                        'context_processors': [
+                                'django.template.context_processors.debug',
+                                'django.template.context_processors.request',
+                                'django.contrib.auth.context_processors.auth',
+                                'django.contrib.messages.context_processors.messages',
+                        ],
+                },
         },
-    },
 ]
 
 WSGI_APPLICATION = 'Blogging.wsgi.application'
@@ -82,28 +79,28 @@ WSGI_APPLICATION = 'Blogging.wsgi.application'
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
 }
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+        {
+                'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+                'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+                'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+                'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
 ]
 
 # Internationalization
@@ -127,7 +124,7 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+        os.path.join(BASE_DIR, "static")
 ]
 
 # noinspection PyUnresolvedReferences
